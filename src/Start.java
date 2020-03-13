@@ -1,3 +1,7 @@
+// Copyright
+// Yuang Liu:   U99473611
+// Jun Xiao:    U85900288
+
 package YuangLiu.JunXiao.CS562Project;
 
 import java.io.IOException;

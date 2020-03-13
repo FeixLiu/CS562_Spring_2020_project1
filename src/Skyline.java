@@ -1,3 +1,7 @@
+// Copyright
+// Yuang Liu:   U99473611
+// Jun Xiao:    U85900288
+
 package YuangLiu.JunXiao.CS562Project;
 
 import com.github.davidmoten.rtree2.*;
@@ -31,8 +35,15 @@ public class Skyline {
     }
 
     public void delete(double x, double y) {
-        System.out.println("Delete: (" + x + ", " + y + ") from rtree.");
         Iterable<Entry<Integer, Point>> cur = rtree.search(Geometries.point(x, y));
+        int count = 0;
+        for (Entry<Integer, Point> ignored : cur)
+            count += 1;
+        if (count == 0) {
+            System.out.println("No such a point in rtree!");
+            return;
+        }
+        System.out.println("Delete: (" + x + ", " + y + ") from rtree.");
         rtree = rtree.delete(cur);
         for (Entry<Integer, Point> entry : cur) {
             if (skyline.contains(entry)) {
